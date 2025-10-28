@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Nuevo Eternals</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #3f51b5;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Asegura que el padding no cambie el ancho total */
+            font-size: 16px;
+        }
+        
+        input[type="file"] {
+            padding: 3px;
+            background-color: #f9f9f9;
+        }
+
+        .btn-submit {
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #3f51b5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            align-self: flex-start; /* Alinea el botón de volver */
+        }
+        .btn-volver:hover { background-color: #1a237e; }
+    </style>
+</head>
+<body>
+
+    <a href="index.php" class="btn-volver">← Volver a la Lista</a>
+
+    <div class="container">
+        <h2>Añadir Nuevo Integrante (Eternals)</h2>
+        <form action="insertar.php" method="POST" enctype="multipart/form-data">
+            
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="rol">Rol:</label>
+            <select id="rol" name="rol" required>
+                <option value="Alumno">Alumno</option>
+                <option value="Profesor">Profesor</option>
+                <option value="Administrativo">Administrativo</option>
+            </select>
+            <label for="control">Número de Control:</label>
+            <input type="text" id="control" name="control" required pattern="[0-9]{1,30}" title="Solo números, máximo 30 dígitos">
+
+            <label for="foto">Foto (Opcional):</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+            <button type="submit" class="btn-submit">💾 Registrar Eternals</button>
+        </form>
+    </div>
+
+</body>
+</html>
